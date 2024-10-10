@@ -1,10 +1,7 @@
 package com.project.socialnetwork.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.List;
 @Table(name = "accounts")
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account {
@@ -27,11 +25,17 @@ public class Account {
     private String fullName;
     private String phone;
     private String address;
+    private String email;
+    private String avatar;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
     private List<Post> posts;
+
+    @ManyToOne
+    @JoinColumn(name = "status_id")
+    private AccountStatus status;
 }

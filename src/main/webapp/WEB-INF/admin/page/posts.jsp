@@ -31,6 +31,35 @@
                     <div class="col-sm-12">
                         <div class="home-tab">
                             <%--content here--%>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Liked</th>
+                                    <th scope="col">Owner</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="post" items="${posts}">
+                                    <tr>
+                                        <th scope="row">${posts.id}</th>
+                                        <td>${post.title}</td>
+                                        <td>${post.liked}</td>
+                                        <td>${post.account.username}</td>
+                                        <td>
+                                            <a href="/admin/account-details?id=${account.id}" type="button"
+                                               class="btn btn-success">View</a>
+                                            <a href="/admin/update-account?id=${account.id}" type="button"
+                                               class="btn btn-warning">Update</a>
+                                            <a href="/admin/delete-account?id=${account.id}" type="button"
+                                               class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
