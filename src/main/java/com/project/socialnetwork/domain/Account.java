@@ -3,7 +3,6 @@ package com.project.socialnetwork.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -23,7 +22,6 @@ public class Account {
     private String password;
 
     private String fullName;
-    private String phone;
     private String address;
     private String email;
     private String avatar;

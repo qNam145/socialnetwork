@@ -42,7 +42,7 @@ public class AccountController {
         List<Account> accounts = accountService.findAll(getPage).getContent();
         model.addAttribute("accounts", accounts);
         model.addAttribute("totalPages", totalPages);
-        return "admin/page/accounts";
+        return "admin/page/account/accounts";
     }
 
     @GetMapping("/admin/delete-account")
@@ -55,7 +55,7 @@ public class AccountController {
     public String getAccountDetails(@RequestParam("id") Long id, Model model) {
         Account account = accountService.findById(id);
         model.addAttribute("account", account);
-        return "admin/page/account-details";
+        return "admin/page/account/account-details";
     }
 
 }
@@ -92,7 +92,6 @@ class AccountAPI {
     @PutMapping("/admin/api-changeStatus-account")
     public ResponseEntity<Account> changeStatusAccount(@RequestParam("id") String accountId,
             @RequestParam("currStatus") String statusId) {
-        System.out.println("hehehe");
         Account account = accountService.findById(Long.parseLong(accountId));
         account.setStatus(statusService.findById(Long.parseLong(statusId) == 1 ? 2L : 1L));
         accountService.saveAccount(account);

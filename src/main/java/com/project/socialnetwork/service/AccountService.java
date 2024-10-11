@@ -1,24 +1,20 @@
 package com.project.socialnetwork.service;
 
-import com.project.socialnetwork.domain.Account;
-import com.project.socialnetwork.domain.Role;
-import com.project.socialnetwork.repository.AccountRepository;
-import com.project.socialnetwork.repository.RoleRepository;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.project.socialnetwork.domain.Account;
+import com.project.socialnetwork.repository.AccountRepository;
 
 @Service
 public class AccountService {
     private final AccountRepository accountRepository;
-    private final RoleRepository roleRepository;
 
-    public AccountService(AccountRepository accountRepository, RoleRepository roleRepository) {
+    public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
-        this.roleRepository = roleRepository;
     }
 
     public Account saveAccount(Account account) {
@@ -44,6 +40,14 @@ public class AccountService {
         return accountRepository.findById(id).orElseThrow();
     }
 
+    public Account findByUsername(String username) {
+        return accountRepository.findByUsername(username);
+    }
+
+    public Account findByEmail(String email) {
+        return accountRepository.findByEmail(email);
+    }
+
     public Account delete(Long id) {
         Account account = accountRepository.findById(id).orElseThrow();
         accountRepository.delete(account);
@@ -51,7 +55,7 @@ public class AccountService {
     }
 
     public long getTotalPages() {
-        return (long)Math.ceil(accountRepository.count()/20f);
+        return (long) Math.ceil(accountRepository.count() / 20f);
     }
 
 }
