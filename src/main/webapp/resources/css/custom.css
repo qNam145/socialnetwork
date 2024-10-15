@@ -1,0 +1,88 @@
+/* Style for sidebar */
+
+#sidebar {
+    min-height: 100vh;
+    width: 250px;
+    position: fixed;
+    background-color: #fff;
+    margin-top: 80px;
+}
+
+#sidebar .list-group-item {
+    background-color: #fff;
+    color: black;
+}
+
+#sidebar .list-group-item:hover {
+    background-color: #b2f1f1;
+}
+
+#sidebar .list-group-item.active {
+    background-color: #00b3b3;
+    color: white;
+}
+
+#list-group-item {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for content */
+.card {
+    margin-bottom: 20px;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+.content-wrapper {
+    margin-left: 240px;
+    padding-left: 70px;
+    /* Move content to the right to make space for sidebar */
+    display: flex;
+    justify-content: center;
+    /* Horizontally center content */
+}
+
+.main-panel {
+    width: 100%;
+    /* Make sure it takes the remaining width */
+}
+
+.popup-form {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay (optional, to dim the background) */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+
+/* Close button */
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+}
