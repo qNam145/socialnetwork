@@ -30,7 +30,7 @@
             <body class="with-welcome-text">
                 <div class="container-scroller">
                     <!-- partial:partials/_navbar.html -->
-                    <!-- include navbar here -->
+                    <jsp:include page="../layout/navbar.jsp" />
                     <!-- partial -->
                     <div class="container-fluid page-body-wrapper">
                         <!-- partial:partials/_sidebar.html -->
@@ -61,7 +61,7 @@
                                                                                 onclick="handleLike()">
                                                                                 <img src="/images/dashboard/8324235_ui_essential_app_like_icon.png"
                                                                                     width="30px" height="30px"
-                                                                                    alt="Like" id="liked">
+                                                                                    alt="Like" class="btn-like like">
                                                                             </button>
                                                                             <h5
                                                                                 style="margin-top: 10px; margin-left: 10px;">
@@ -138,6 +138,19 @@
                     crossorigin="anonymous"></script>
                 <!-- End custom js for this page-->
                 <script>
+                    function handleLike() {
+                        var like = document.querySelector('.btn-like');
+                        if (like.classList.contains('liked')) {
+                            like.src = "/images/dashboard/8324235_ui_essential_app_like_icon.png";
+                            like.classList.remove('liked');
+                            like.classList.add('like');
+                        }
+                        else {
+                            like.src = "/images/dashboard/8324235_ui_essential_app_liked_icon.png";
+                            like.classList.remove('like');
+                            like.classList.add('liked');
+                        }
+                    }
                     // JavaScript to handle popup
                     const openPopupBtn = document.getElementById("openPopupBtn");
                     const popupForm = document.getElementById("popupForm");

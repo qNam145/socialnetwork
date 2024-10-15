@@ -43,4 +43,5 @@ public class HomePageController {
         postService.savePost(post);
         return "redirect:/";
     }
+    
 }
