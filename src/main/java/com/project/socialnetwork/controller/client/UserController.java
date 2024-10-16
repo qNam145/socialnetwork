@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.socialnetwork.domain.Account;
-import com.project.socialnetwork.domain.AccountStatus;
 import com.project.socialnetwork.service.AccountService;
 import com.project.socialnetwork.service.RoleService;
 import com.project.socialnetwork.service.StatusService;
@@ -20,7 +19,8 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
     private final StatusService statusService;
 
-    public UserController(AccountService accountService, RoleService roleService, PasswordEncoder passwordEncoder, StatusService statusService) {
+    public UserController(AccountService accountService, RoleService roleService, PasswordEncoder passwordEncoder,
+            StatusService statusService) {
         this.accountService = accountService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;

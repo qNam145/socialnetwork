@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.project.socialnetwork.service.AccountService;
 import com.project.socialnetwork.service.CustomUserDetailsService;
@@ -41,19 +42,18 @@ public class SecurityConfiguration {
         // credentials will be shown as bad credentials
         return provider;
     }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .dispatcherTypeMatchers(DispatcherType.FORWARD,
-                                DispatcherType.INCLUDE)
+                        .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE)
                         .permitAll()
-                        .requestMatchers("/", "/login", "/register", "/client/**", "/css/**", "/js/**",
-                                "/images/**")
+                        .requestMatchers("/", "/login", "/register", "/client/**", "/css/**",
+                                "/js/**", "/images/**")
                         .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                        // .anyRequest().permitAll())
                 .sessionManagement((sessionManagement) -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                         .invalidSessionUrl("/logout?expired")

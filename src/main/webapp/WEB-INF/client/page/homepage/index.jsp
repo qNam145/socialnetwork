@@ -29,13 +29,9 @@
 
             <body class="with-welcome-text">
                 <div class="container-scroller">
-                    <!-- partial:partials/_navbar.html -->
                     <jsp:include page="../layout/navbar.jsp" />
-                    <!-- partial -->
                     <div class="container-fluid page-body-wrapper">
-                        <!-- partial:partials/_sidebar.html -->
                         <jsp:include page="../layout/sidebar.jsp" />
-                        <!-- partial -->
                         <div class="main-panel">
                             <div class="content-wrapper">
                                 <div class="row">

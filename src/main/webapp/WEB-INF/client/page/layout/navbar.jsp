@@ -16,13 +16,10 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link rounded-pill" aria-current="page" href="#"
                                     onclick="ChangeCurrentActive(this)">Home</a>
-                                <h1>
-                                    username<c:out value="${pageContext.request.userPrincipal.name}" />
-                                </h1>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link rounded-pill" href="#" onclick="ChangeCurrentActive(this)">Watch</a>
@@ -48,17 +45,16 @@
                                 </span>
                             </div>
                         </form>
-                        <nav class="navbar bg-body-tertiary">
-                            <form class="container-fluid justify-content-start">
-                                <a href="/login" class="btn btn-md me-2 btn-secondary px-3 py-2 rounded-pill" type="button"
-                                    onclick="togglePopup()">
-                                    Login
-                                </a>
-                                <a href="/register" class="btn btn-md btn-outline-dark px-3 py-2 rounded-pill" type="button">
-                                    Sign Up
-                                </a>
-                            </form>
-                        </nav>
+                        <div class="d-flex">
+                            <a href="/login" class="btn btn-md me-2 btn-secondary px-3 py-2 rounded-pill" type="button"
+                                onclick="togglePopup()">
+                                Login
+                            </a>
+                            <a href="/register" class="btn btn-md btn-outline-dark px-3 py-2 rounded-pill"
+                                type="button">
+                                Sign Up
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
